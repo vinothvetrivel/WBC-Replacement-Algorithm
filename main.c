@@ -103,9 +103,8 @@ int large_cluster(struct cluster *cnode){
 
 
 int main(int argc, char** argv) {
-    int LCS_threshold=0,n=0,i=0;
+    int LCS_threshold=0,n=0,i=0,j=0;
     char clustername[10];
-    //struct page *pnode = cnode->pagelink;
     create_cluster();
     display_clusters();
     printf("NC_LCS=%d",((int)large_cluster(cnode)));
@@ -118,7 +117,11 @@ int main(int argc, char** argv) {
     {
        if((strcmp((cnode+i)->cname,clustername)==0))
        {
-           printf("Sucess");
+           for(j=0;j<((cnode+i)->num_of_pages);j++)
+           {
+               
+               printf("\n%s",(((cnode+i)->pagelink)+j)->pname);
+           }
        }
         
     }
